@@ -58,7 +58,7 @@ app.get("/products/:id", (req, res) => {
 
 app.post("/products", authenticateToken, upload.single("image"), (req, res) => {
   let { name, category, price, description, stock, rating } = req.body;
-  const image = req.file ? `/images/${req.file.filename}` : null; // Save image path if file was uploaded
+  const image = req.file ? `http://localhost:5000/products/images/${req.file.filename}` : null; // Save image path if file was uploaded
 
   console.log(`req.body`, req.body);
   price = parseFloat(price);
